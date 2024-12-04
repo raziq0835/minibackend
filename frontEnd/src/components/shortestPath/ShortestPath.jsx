@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './shortestPath.css';
 
-
-const ShortestPath = () => {
+const ShortestPath = ({ rooms }) => {
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
   const [path, setPath] = useState(null);
@@ -27,6 +26,16 @@ const ShortestPath = () => {
     fetchShortestPath();
   };
 
+  const handleStartChange = (e) => {
+    const selectedValue = e.target.value;
+    setStart(selectedValue);
+  };
+
+  const handleEndChange = (e) => {
+    const selectedValue = e.target.value;
+    setEnd(selectedValue);
+  };
+
   return (
     <div>
       <h1>Shortest Path Finder</h1>
@@ -34,28 +43,40 @@ const ShortestPath = () => {
         <label>
           Start:
           <input
-            type="text" name="fromthis"
+            type="text"
+            name="start"
             value={start}
             onChange={(e) => setStart(e.target.value)}
             required
+            placeholder="Select or type start location"
           />
-          <select for="fromthis">
-            <option>3</option>
-            <option>5</option>
-            <option>4</option>
-            {
-
-            }
+          <select value={start} onChange={handleStartChange}>
+            <option value="">Select Start Location</option>
+            {rooms.map((room) => (
+              <option value={room.id} key={room.id}>
+                {room.name}
+              </option>
+            ))}
           </select>
         </label>
         <label>
           End:
           <input
             type="text"
+            name="end"
             value={end}
             onChange={(e) => setEnd(e.target.value)}
             required
+            placeholder="Select or type end location"
           />
+          <select value={end} onChange={handleEndChange}>
+            <option value="">Select End Location</option>
+            {rooms.map((room) => (
+              <option value={room.id} key={room.id}>
+                {room.name}
+              </option>
+            ))}
+          </select>
         </label>
         <button type="submit">Find Path</button>
       </form>
