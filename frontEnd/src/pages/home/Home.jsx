@@ -1,7 +1,7 @@
 import './home.css'
-import Header from '../components/header/Header'
-import Footer from '../components/footer/Footer'
-// import {Link} from 'react-router-dom'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
+import {Link} from 'react-router-dom'
 
 
 
@@ -14,17 +14,18 @@ import Footer from '../components/footer/Footer'
 const HomePage = () => {
     return (
       <div className="homepage">
-        <Header />
+        
   
         <main className="homepage-main">
+        <Header />
           <section className="links-section">
             <h2>Explore the System</h2>
             <div className="links-container">
               <div className="link-item">
-                <a href="https://officialcollegewebsite.com" target="_blank" rel="noopener noreferrer">Official College Website</a>
+                <a href="https://mitmysore.in/" target="_blank" rel="noopener noreferrer">Official College Website</a>
               </div>
               <div className="link-item">
-                <a href="http://localhost:5173/path">Find Path</a>
+                <Link to={"http://localhost:5173/path"}>Path</Link> 
               </div>
               <div className="link-item">
                 <a href="http://localhost:5173/path">college review</a>
@@ -51,9 +52,10 @@ const HomePage = () => {
               view a detailed map, or learn more about the faculty, we've got you covered.
             </p>
           </section>
+          <Footer />
         </main>
   
-        <Footer />
+        
       </div>
     );
   };

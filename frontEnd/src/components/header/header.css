@@ -1,62 +1,55 @@
-/* CSS for the Header Component */
+ /* .homepage-header {
+  background-color: #004080; 
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid #002060; 
+}
 
-.homepage-header {
-    background-color: #004080; /* Navy blue background */
-    color: white; /* White text color */
-    padding: 20px;
-    text-align: center;
-    border-bottom: 4px solid #002060; /* Darker border for emphasis */
-  }
-  
-  .header-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
-  .header-logo .logo {
-    max-width: 100px; /* Restrict logo size */
-    height: auto;
-  }
-  
-  .header-content h1 {
-    font-size: 2.5em;
-    margin: 10px 0;
-    font-weight: bold;
-  }
-  
-  .header-content p {
-    font-size: 1.2em;
-    margin: 5px 0;
-  }
-  
-  .header-nav {
-    margin-top: 15px;
-  }
-  
-  .header-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .header-nav ul li {
-    display: inline;
-  }
-  
-  .header-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.1em;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .header-nav ul li a:hover {
-    background-color: #002060; /* Hover effect with darker background */
-    color: #e0e0e0; /* Slightly lighter text */
-  }
+.header-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.header-logo img {
+  max-width: 100px;
+  height: auto;
+}
+
+.header-content h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.header-content p {
+  font-size: 1.2em;
+}
+
+.header-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.header-nav li {
+  display: inline;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.header-nav a:hover {
+  background-color: #002060;
+  color: #e0e0e0;
+}
+ */

@@ -1,8 +1,10 @@
 import React, { useEffect ,useState} from 'react';
 import axios from 'axios';
 import './index.css'
-import Home from './pages/Home.jsx'
-import ShortestPath from './components/shortestPath/ShortestPath';
+import Header from './components/header/Header.jsx';
+import Home from './pages/home/Home.jsx'
+import Path from './pages/path/path.jsx';
+// import ShortestPath from './components/shortestPath/ShortestPath';
 
  
 
@@ -42,8 +44,7 @@ const App = () => {
 
     return (
         <>
-        <ShortestPath rooms = {rooms}/>
-        {/* <Home/> */}
+        <Home/>
         </>
     );
 };

@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import ShortestPath from './components/shortestPath/ShortestPath.jsx'
+import Path from './pages/path/path.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import './index.css'
-import Home from './pages/Home.jsx'
+import Home from './pages/home/Home.jsx'
 import App from './App.jsx'
 
 const router = createBrowserRouter([
@@ -13,17 +13,22 @@ const router = createBrowserRouter([
     errorElement: <div>404 Page Not Found</div>,
     children: [
       {
-        path: 'home',
-        element: <Home />,
+        index: true, // Makes it the default child route
+        element: <App />,
       },
-      
+      {
+        path: 'home',
+        element: <App />,
+      },
+      {
+        path: 'path',
+        element: <Path/>,
+        errorElement: <div>404 Page Not Found</div>,
+      },
     ],
-  },
-  {
-    path:'/path',
-    element: <ShortestPath/>,
-  },
-]);
+  }
+])
+  
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
