@@ -1,9 +1,10 @@
 import './header.css'
+import reactlogo from '../../assets/react.svg'
 
 const Header = () => (
     <header className="homepage-header">
       <div className="header-logo">
-        <img src="D:\Documents\miniProjectFrontEnd\frontEnd\src\assets\react.svg" alt="College Logo" className="logo" />
+        <img src="reactlogo" alt="College Logo" className="logo" />
       </div>
       <div className="header-content">
         <h1>Welcome to College Navigation System</h1>

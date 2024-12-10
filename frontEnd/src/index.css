@@ -319,7 +319,7 @@ div {
     color: white;
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border-top: 4px solid #004080;
 }
 
@@ -366,4 +366,26 @@ div {
 .footer-social a:hover {
     transform: scale(1.2);
     color: #80bfff;
+}
+
+
+/*shortestPath */
+
+.path-container{
+    display: grid;
+    flex-grow: inherit;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.path-navigator{
+    margin: 20px 30px;
+    max-height: 610px;
+    overflow-y: auto;
+    width: 640px;
+}
+
+.path-text{
+    width:100%;
 }

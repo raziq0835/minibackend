@@ -37,7 +37,8 @@ const ShortestPath = ({ rooms }) => {
   };
 
   return (
-    <div>
+    <>
+    <div className='path-navigator'>
       <h1>Shortest Path Finder</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -46,14 +47,14 @@ const ShortestPath = ({ rooms }) => {
             type="text"
             name="start"
             value={start}
-            onChange={(e) => setStart(e.target.value)}
+            onChange={(e) => setStart(e.target.key)}
             required
             placeholder="Select or type start location"
           />
           <select value={start} onChange={handleStartChange}>
             <option value="">Select Start Location</option>
             {rooms.map((room) => (
-              <option value={room.id} key={room.id}>
+              <option value={room.id} key={room.name}>
                 {room.name}
               </option>
             ))}
@@ -72,7 +73,7 @@ const ShortestPath = ({ rooms }) => {
           <select value={end} onChange={handleEndChange}>
             <option value="">Select End Location</option>
             {rooms.map((room) => (
-              <option value={room.id} key={room.id}>
+              <option value={room.name} key={room.id}>
                 {room.name}
               </option>
             ))}
@@ -82,7 +83,7 @@ const ShortestPath = ({ rooms }) => {
       </form>
 
       {path && (
-        <div>
+        <div className="path-text">
           <h2>Shortest Path:</h2>
           <p>{path.join(' -> ')}</p>
         </div>
@@ -90,6 +91,84 @@ const ShortestPath = ({ rooms }) => {
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {path && (
+        <div className='path-navigator'>
+        <h1>Shortest Path Finder</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Start:
+            <input
+              type="text"
+              name="start"
+              value={start}
+              onChange={(e) => setStart(e.target.key)}
+              required
+              placeholder="Select or type start location"
+            />
+            <select value={start} onChange={handleStartChange}>
+              <option value="">Select Start Location</option>
+              {rooms.map((room) => (
+                <option value={room.name} key={room.id}>
+                  {room.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            End:
+            <input
+              type="text"
+              name="end"
+              value={end}
+              onChange={(e) => setEnd(e.target.value)}
+              required
+              placeholder="Select or type end location"
+            />
+            <select value={end} onChange={handleEndChange}>
+              <option value="">Select End Location</option>
+              {rooms.map((room) => (
+                <option value={room.name} key={room.id}>
+                  {room.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button type="submit">Find Path</button>
+        </form>
+  
+        {path && (
+          <div>
+            <h2>Shortest Path:</h2>
+            <p>{path.join(' -> ')}</p>
+          </div>
+        )}
+  
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
+      )}
+
+
+    </>
+
+    
+      
+        
   );
 };
 
