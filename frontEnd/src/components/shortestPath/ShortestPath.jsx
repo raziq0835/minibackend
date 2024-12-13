@@ -6,7 +6,6 @@
 // import left from '../../assets/dir/left.svg'
 // import './shortestPath.css';
 
-
 // const ShortestPath = ({ rooms }) => {
 //   const [start, setStart] = useState('');
 //   const [end, setEnd] = useState('');
@@ -17,7 +16,6 @@
 //   const [currDir,setCurrDir] = useState(null);
 //   const [i,setI] = useState(0);
 
-
 //   const fetchShortestPath = async () => {
 //     try {
 //       const response = await axios.get('http://localhost:5000/', {
@@ -25,18 +23,11 @@
 //       });
 //       setPath(response.data.instructions);
 //       console.log(path)
-      
+
 //       setDir(response.data.directions);
 //       console.log(dir)
 //       setError(null);
-      
 
-      
-      
-    
-
-      
-      
 //     } catch (err) {
 //       console.error('Error fetching shortest path:', err);
 //       setError('Unable to fetch the shortest path. Please try again.');
@@ -80,38 +71,36 @@
 //   // };
 
 //   const handelBack = () => {
-//     if (i > 0) {  
+//     if (i > 0) {
 //       setI(i-1);
-//       handelUrlChange(); 
+//       handelUrlChange();
 //       let d = path[i];
-//       setCurrDir(d);  
+//       setCurrDir(d);
 //     }
 //   };
 
 //   const handelEnd = () => {
-//     setPath(null);  
-//     setDir(null);  
-//     setCurrDir(null);  
+//     setPath(null);
+//     setDir(null);
+//     setCurrDir(null);
 //     setImgUrl('');
-//     setI(0);  
+//     setI(0);
 //   };
 
 //   const handelNext = () => {
-//     if (i < path.length) {  
+//     if (i < path.length) {
 //       setI(i+1);
-//       handelUrlChange();  
+//       handelUrlChange();
 //       let d = path[i];
-//       setCurrDir(d);  
+//       setCurrDir(d);
 //     }
 //   };
 
 //   return (
 //   <>
-    
+
 //     <div className='path-navigator'>
 //       <h1>Shortest Path Finder</h1>
-
-      
 
 //       <form onSubmit={handleSubmit}>
 //         <label>
@@ -153,7 +142,7 @@
 //           </select>
 //         </label>
 //         <button type="submit">Find Path</button>
-//       </form> 
+//       </form>
 
 //       {path && (
 //         <div className="path-text">
@@ -166,22 +155,7 @@
 //       {error && <p style={{ color: 'red' }}>{error}</p>}
 //     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//       {path && 
+//       {path &&
 //       (
 //         <div className='path-navigator'>
 //         <h1>Shortest Path Finder</h1>
@@ -232,50 +206,43 @@
 //           </label>
 //           <button type="submit">Find Path</button>
 //         </form> */}
-  
+
 //         <div className="path-text">
 //           <h2>Shortest Path:</h2>
 //           <p>{currDir}</p>
 //         </div>
-  
+
 //         {error && <p style={{ color: 'red' }}>{error}</p>}
 //       </div>
 //       )}
 
-
-    
 //     </>
 
-    
-      
-        
 //   );
 // };
 
 // export default ShortestPath;
 
-
-
-import React, { useState } from 'react';
-import axios from 'axios';
-import up from '../../assets/dir/up.svg';
-import right from '../../assets/dir/right.svg';
-import left from '../../assets/dir/left.svg';
-import './shortestPath.css';
+import React, { useState } from "react";
+import axios from "axios";
+import up from "../../assets/dir/up.svg";
+import right from "../../assets/dir/right.svg";
+import left from "../../assets/dir/left.svg";
+import "./shortestPath.css";
 
 const ShortestPath = ({ rooms }) => {
-  const [start, setStart] = useState('');
-  const [end, setEnd] = useState('');
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
   const [path, setPath] = useState(null);
   const [error, setError] = useState(null);
-  const [imgUrl, setImgUrl] = useState('');
+  const [imgUrl, setImgUrl] = useState("");
   const [dir, setDir] = useState([]);
   const [currDir, setCurrDir] = useState(null);
   const [i, setI] = useState(0);
 
   const fetchShortestPath = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/', {
+      const response = await axios.get("http://localhost:5000/", {
         params: { start, end },
       });
       const { instructions, directions } = response.data;
@@ -283,11 +250,11 @@ const ShortestPath = ({ rooms }) => {
       setDir(directions);
       setError(null);
       setI(0); // Reset index
-      setCurrDir(instructions[0] || ''); // Initialize current direction
+      setCurrDir(instructions[0] || ""); // Initialize current direction
       updateImgUrl(directions[0]);
     } catch (err) {
-      console.error('Error fetching shortest path:', err);
-      setError('Unable to fetch the shortest path. Please try again.');
+      console.error("Error fetching shortest path:", err);
+      setError("Unable to fetch the shortest path. Please try again.");
     }
   };
 
@@ -303,7 +270,7 @@ const ShortestPath = ({ rooms }) => {
         setImgUrl(left);
         break;
       default:
-        setImgUrl('');
+        setImgUrl("");
     }
   };
 
@@ -334,61 +301,68 @@ const ShortestPath = ({ rooms }) => {
     setPath(null);
     setDir([]);
     setCurrDir(null);
-    setImgUrl('');
+    setImgUrl("");
     setI(0);
   };
 
   return (
     <>
-    <div className="path-navigator">
-      <h1>Shortest Path Finder</h1>
+      <div className="path-navigator">
+        <h1>Shortest Path Finder</h1>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Start:
-          <select value={start} onChange={(e) => setStart(e.target.value)} required>
-            <option value="">Select Start Location</option>
-            {rooms.map((room) => (
-              <option value={room.id} key={room.id}>
-                {room.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          End:
-          <select value={end} onChange={(e) => setEnd(e.target.value)} required>
-            <option value="">Select End Location</option>
-            {rooms.map((room) => (
-              <option value={room.id} key={room.id}>
-                {room.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button type="submit">Find Path</button>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Start:
+            <select
+              value={start}
+              onChange={(e) => setStart(e.target.value)}
+              required
+            >
+              <option value="">Select Start Location</option>
+              {rooms.map((room) => (
+                <option value={room.id} key={room.id}>
+                  {room.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            End:
+            <select
+              value={end}
+              onChange={(e) => setEnd(e.target.value)}
+              required
+            >
+              <option value="">Select End Location</option>
+              {rooms.map((room) => (
+                <option value={room.id} key={room.id}>
+                  {room.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button type="submit">Find Path</button>
+        </form>
+
+        {path && (
+          <div className="path-display">
+            <h2>Shortest Path:</h2>
+            <p>
+              The shortest path between {start} and {end} is:{" "}
+              {path.join(" -> ")}
+            </p>
+          </div>
+        )}
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
+      </div>
 
       {path && (
-        <div className="path-display">
-          <h2>Shortest Path:</h2>
-          <p>The shortest path between {start} and {end} is: {path.join(' -> ')}</p>
-        </div>
-      )}
-
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      
-    </div>
-
-
-      
-        {path && (
-        <div className='path-navigator'>
-         <h1>Shortest Path Finder</h1>
+        <div className="path-navigator">
+          <h1>Shortest Path Finder</h1>
           <img src={imgUrl} alt="direction" />
           <p>{currDir}</p>
-          <div className='nav-buttons'>
+          <div className="nav-buttons">
             <button onClick={handleBack} disabled={i === 0}>
               Back
             </button>
@@ -399,8 +373,7 @@ const ShortestPath = ({ rooms }) => {
           </div>
         </div>
       )}
-      
-      </>
+    </>
   );
 };
 
