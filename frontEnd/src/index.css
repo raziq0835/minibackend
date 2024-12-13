@@ -151,6 +151,9 @@ div {
     button {
       font-size: 0.9rem;
     }
+    .path-container{
+      flex-direction: column;
+    }
   }
   
 
@@ -179,13 +182,15 @@ div {
 .header-logo {
     display: flex;
     min-width: 100%;
+    
     justify-content: center;
     margin-bottom: 15px;
 }
 
 .header-logo img {
     max-width: 100px;
-    height: auto;
+    /* height: auto; */
+    overflow: cover;
 }
 
 .header-content {
@@ -342,13 +347,13 @@ div {
 
 .footer-links a {
     text-decoration: none;
-    color: white;
+    color: #80bfff;
     font-size: 1em;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #80bfff;
+    color: #0481fe;
 }
 
 .footer-social {
@@ -372,12 +377,19 @@ div {
 /*shortestPath */
 
 .path-container{
-    display: grid;
+    display: flex;
+    
     flex-grow: inherit;
     justify-content: center;
     align-items: center;
 
 }
+
+
+/* .shortestPath-navigator{
+  display: flex;
+  width: 100%;
+} */
 
 .path-navigator{
     margin: 20px 30px;
@@ -388,4 +400,15 @@ div {
 
 .path-text{
     width:100%;
+}
+
+
+img{
+  height: 100%;
+  width: 100%;
+}
+
+.nav-buttons{
+  display: flex;
+  gap: 2;
 }
