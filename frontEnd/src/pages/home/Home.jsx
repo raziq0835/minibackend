@@ -23,7 +23,7 @@ const HomePage = () => {
             <div className="link-item">
               <Link to={"http://localhost:5173/path"}>Path</Link>
             </div>
-            <div className="link-item">
+            {/* <div className="link-item">
               <a href="http://localhost:5173/path">college review</a>
             </div>
             <div className="link-item">
@@ -31,7 +31,7 @@ const HomePage = () => {
             </div>
             <div className="link-item">
               <a href="/find-faculties">Find Faculties</a>
-            </div>
+            </div> */}
             <div className="link-item">
               <a href="/about">About Us</a>
             </div>
